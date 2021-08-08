@@ -1,6 +1,8 @@
-# quote_app
+# Quote App
 
-A new Flutter application.
+Random quote apps is an application build using flutter and using open api.
+This application using Bloc.
+For Api documentation can check [Quote garden documentation](https://github.com/pprathameshmore/QuoteGarden)
 
 # Preview
 <img src="assets/ss_apps.png" width="200" height="350">
