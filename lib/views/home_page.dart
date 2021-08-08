@@ -18,10 +18,6 @@ class HomePage extends StatelessWidget {
         }
         if (state is QuoteLoaded) {
           return ListTile(
-            // leading: Text(
-            //   '${state.quote[0].id}',
-            //   style: TextStyle(fontSize: 10.0),
-            // ),
             title: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child : Text(state.quote[0].quoteText,
