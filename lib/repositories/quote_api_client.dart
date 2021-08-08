@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -13,16 +14,21 @@ class QuoteApiClient {
     @required this.httpClient,
   }) : assert(httpClient != null);
 
-  Future<Quote> fetchQuote() async {
-    final url = '$_baseUrl/quotes/random';
+  Future<List<Quote>> fetchQuote() async {
+    final url = '$_baseUrl/api/v3/quotes/random';
     final response = await this.httpClient.get(url);
 
     if (response.statusCode != 200) {
       throw new Exception('error getting quotes');
     }
 
-    final json = jsonDecode(response.body);
-    return Quote.fromJson(json);
+    final json = await compute(jsonDecode, response.body);
+    final data = json['data'];
+
+    if(data is List){
+      return data.map<Quote>((e) => Quote.fromJson(e)).toList();
+    }
+    return null;
   }
 
 }

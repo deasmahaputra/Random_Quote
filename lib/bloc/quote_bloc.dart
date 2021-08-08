@@ -20,7 +20,7 @@ class QuoteBloc extends Bloc<QuoteEvent, QuoteState>{
       yield QuoteLoading();
     }
     try{
-      final Quote quote = await quoteRepository.fetchQuote();
+      final List<Quote> quote = await quoteRepository.fetchQuote();
       yield QuoteLoaded(quote: quote);
     }catch(_){
       yield QuoteError();

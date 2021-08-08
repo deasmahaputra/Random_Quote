@@ -7,7 +7,7 @@ class QuoteRepository {
 
   QuoteRepository({@required this.quoteApiClient}) : assert(quoteApiClient != null);
 
-  Future<Quote> fetchQuote() async {
+  Future<List<Quote>> fetchQuote() async {
     return await quoteApiClient.fetchQuote();
   }
 }
